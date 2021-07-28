@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gh_pages/demonstracao/components/dash_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DemonstracaoPage extends StatefulWidget {
   const DemonstracaoPage({Key? key}) : super(key: key);
@@ -27,72 +28,96 @@ class _DemonstracaoPageState extends State<DemonstracaoPage>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Colors.white,
-            Colors.blue.shade100,
-            Colors.blue.shade200,
-            Colors.pink.shade100,
-            Colors.orange.shade50,
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Colors.blue.shade100,
+              Colors.blue.shade200,
+              Colors.pink.shade100,
+              Colors.orange.shade50,
+            ],
+          ),
+        ),
+        child: Stack(
+          children: [
+            Image.asset(
+              "assets/nuvem.png",
+              scale: 1,
+            ),
+            AnimatedAlign(
+              alignment: Alignment(animation.value + 1, 0),
+              duration: Duration(milliseconds: 240),
+              child: Image.asset(
+                "assets/nuvem.png",
+                scale: 1,
+              ),
+            ),
+            AnimatedAlign(
+              alignment: Alignment(animation.value - 1, -0.5),
+              duration: Duration(milliseconds: 200),
+              child: Image.asset(
+                "assets/nuvem.png",
+                scale: 2,
+              ),
+            ),
+            AnimatedAlign(
+              alignment: Alignment(animation.value + 2, 1),
+              duration: Duration(milliseconds: 100),
+              child: Image.asset(
+                "assets/nuvem.png",
+                scale: 2,
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: DashWidget(),
+            ),
+            AnimatedAlign(
+              alignment: Alignment(animation.value - 0.8, 0.5),
+              duration: Duration(milliseconds: 400),
+              child: Image.asset(
+                "assets/nuvem.png",
+                scale: 1,
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Image.asset(
+                "assets/nuvem.png",
+                scale: 1,
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                child: Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    Text(
+                      "Feito com",
+                      style: TextStyle(color: Colors.cyan),
+                    ),
+                    Icon(
+                      Icons.favorite,
+                      color: Colors.pink,
+                    ),
+                    Text(
+                      "por Gracy",
+                      style: TextStyle(color: Colors.cyan),
+                    )
+                  ],
+                ),
+              ),
+            )
           ],
         ),
-      ),
-      child: Stack(
-        children: [
-          Image.asset(
-            "assets/nuvem.png",
-            scale: 1,
-          ),
-          AnimatedAlign(
-            alignment: Alignment(animation.value + 1, 0),
-            duration: Duration(milliseconds: 240),
-            child: Image.asset(
-              "assets/nuvem.png",
-              scale: 1,
-            ),
-          ),
-          AnimatedAlign(
-            alignment: Alignment(animation.value - 1, -0.5),
-            duration: Duration(milliseconds: 200),
-            child: Image.asset(
-              "assets/nuvem.png",
-              scale: 2,
-            ),
-          ),
-          AnimatedAlign(
-            alignment: Alignment(animation.value + 2, 1),
-            duration: Duration(milliseconds: 100),
-            child: Image.asset(
-              "assets/nuvem.png",
-              scale: 2,
-            ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: DashWidget(),
-          ),
-          AnimatedAlign(
-            alignment: Alignment(animation.value - 0.8, 0.5),
-            duration: Duration(milliseconds: 400),
-            child: Image.asset(
-              "assets/nuvem.png",
-              scale: 1,
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Image.asset(
-              "assets/nuvem.png",
-              scale: 1,
-            ),
-          ),
-        ],
       ),
     );
   }
