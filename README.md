@@ -1,16 +1,10 @@
-# flutter_gh_pages
 
-A new Flutter project.
+<img src="https://media.giphy.com/media/E89xxATM4iZoPdr6Tb/giphy.gif" width="200">
 
-## Getting Started
+# GitHub Pages + Flutter Web
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+ ℹ️ [Como publicar o seu site feito em Flutter no GitHub Pages](https://medium.com/@gracyele?p=5379506dd17a)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+ 💻 Poderá visualizar o projeto através do [Site do projeto](https://1agracinha.github.io/flutter-gh-pages/)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
