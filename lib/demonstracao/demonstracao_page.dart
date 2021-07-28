@@ -19,19 +19,17 @@ class _DemonstracaoPageState extends State<DemonstracaoPage>
     super.initState();
     controller =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
-    animation = Tween<double>(begin: -1, end: 1).animate(controller)
+    animation = Tween<double>(begin: 1, end: -1).animate(controller)
       ..addListener(() {
         setState(() {});
       });
-    controller.repeat(reverse: true);
+    controller.forward();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -75,8 +73,9 @@ class _DemonstracaoPageState extends State<DemonstracaoPage>
                 scale: 2,
               ),
             ),
-            Align(
-              alignment: Alignment.center,
+            AnimatedAlign(
+              alignment: Alignment(animation.value + 1, -animation.value - 1),
+              duration: Duration(milliseconds: 100),
               child: DashWidget(),
             ),
             AnimatedAlign(
